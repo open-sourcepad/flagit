@@ -10,7 +10,8 @@ Rails.application.configure do
   config.assets.compile = false
   config.assets.digest = true
 
-  config.log_level = :debug
+  config.logger = Logger.new(STDOUT)
+  config.logger.level = Logger::DEBUG
 
 
   config.i18n.fallbacks = true
