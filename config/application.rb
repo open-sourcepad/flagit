@@ -39,6 +39,7 @@ module OpenAdmin
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
     config.autoload_paths += Dir[Rails.root.join('app', 'controllers', '{**}')]
 
+    config.public_file_server.enabled = true
     config.time_zone = 'Eastern Time (US & Canada)'
     config.active_record.raise_in_transactional_callbacks = true
     config.angular_templates.inside_paths   = ['client/src']
