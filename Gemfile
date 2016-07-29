@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+require 'cgi'
+
 gem 'rails'
 gem 'sass-rails'
 gem 'uglifier'
