@@ -1,5 +1,4 @@
 class Api::V1::SpeechesController < ApiController
-
   def index
     render json: Speech.order("id DESC")
   end
@@ -18,6 +17,10 @@ class Api::V1::SpeechesController < ApiController
 
     unless speech.summarized_text
       Summarizer::Client.new.summarize(speech)
+    end
+
+    if speech.key_points.empty?
+      Summarizer::KeyPoints.new.get_key_points(speech)
     end
 
     render json: speech
