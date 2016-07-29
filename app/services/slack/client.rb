@@ -4,7 +4,7 @@ module Slack
       client = Slack::Web::Client.new
       client.auth_test
 
-      client.chat_postMessage(channel: channel, text: message, as_user: true)
+      client.chat_postMessage(channel: channel, text: message, as_user: true, mrkdwn: true)
     end
   end
 end

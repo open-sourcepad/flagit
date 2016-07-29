@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/daryllxd/smmrize.git
+  revision: f9f4411cdb20f736e0b09145d97d440709b31181
+  specs:
+    smmrize (0.1.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -300,7 +306,6 @@ GEM
       railties (>= 3.1)
       slim (~> 3.0)
     slop (3.6.0)
-    smmrize (0.1.1)
     sprockets (3.6.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -377,11 +382,14 @@ DEPENDENCIES
   simplecov
   slack-ruby-client
   slim-rails
-  smmrize
+  smmrize (= 0.1.2)!
   thin
   uglifier
   webmock
   whenever
+
+RUBY VERSION
+   ruby 2.3.0p0
 
 BUNDLED WITH
    1.12.5

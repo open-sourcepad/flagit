@@ -7,10 +7,17 @@ module Summarizer
     #     " Plans to build the first new UK nuclear plant in 20 years have suffered an unexpected delay after the government postponed a final decision until the early autumn. French firm EDF, which is financing most of the 18bn Hinkley Point project in Somerset, approved the funding at a board meeting. Business Secretary Greg Clark has said the government will \"Consider carefully\" before backing it. EDF chief executive Vincent de Rivaz has cancelled a trip to Hinkley Point on Friday following Mr Clark's comments. Hours after EDF's board voted to approve the 18bn power plant on Thursday, the government launched a further review of the project. This stunning new development came all the way from the top of government and the timing seemed calculated to cause maximum impact. Is it a genuine pause for a new government to read the small print of a project that is two administrations old, or a signal of a potential change in policy?",
     #      "sm_api_limitation"=>
     #        "Waited 0 extra seconds due to API limited mode, 24 requests left to make for today."}
-    def summarize payload
+    def summarize(speech)
       summarized_document = Smmrize.document(
-        input: sample_text
+        input: speech.text
       )
+
+      speech.update_attributes(summarized_text: summarized_document['sm_api_content'])
+
+      return {
+        speech: speech,
+        summarized_document: summarized_document
+      }
     end
 
     def sample_text

@@ -5,12 +5,34 @@ class Api::V1::SpeechesController < ApiController
   end
 
   def create
-    puts "*********************"
-    puts params[:file]
-    puts params[:title]
     Speech.create(title: params[:title])
-    puts "*********************"
-    render json: {text: Wit::Client.new.post(params[:file])}
+    render json: {
+      text: Wit::Client.new.post(
+        params[:file],
+        params[:title]
+      )}
   end
 
+  def summarize
+    speech = Speech.find_by_id(params[:id])
+
+    unless speech.summarized_text
+      Summarizer::Client.new.summarize(speech)
+    end
+
+    render json: speech
+  end
+
+  def notify_slack
+    speech = Speech.find_by_id(params[:id])
+
+    summarized_text = speech.summarized_text || 'This is the summarized text guys'
+
+    Slack::Client.new.send_message(
+      channel: "#flagit",
+      message: "Your speech, *#{speech.title}*, has been summarized: #{summarized_text} :smile:",
+    )
+
+    render json: { success: true, summarized_text: summarized_text }
+  end
 end
