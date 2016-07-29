@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
-
-require 'cgi'
+ruby '2.3.0'
 
 gem 'rails'
 gem 'sass-rails'
