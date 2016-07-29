@@ -15,7 +15,7 @@ module Wit
 
     def post payload
       begin
-        return parse(RestClient.post "#{base_url}", payload, { 'Content-Type' => 'audio/wav', :Authorization => 'Bearer N7H5MN53KGY5IHBSO3U2CDLRH5JYHWVF'})[:_text]
+        return parse(RestClient.post "#{base_url}", File.open(payload), { 'Content-Type' => 'audio/wav', :Authorization => 'Bearer N7H5MN53KGY5IHBSO3U2CDLRH5JYHWVF'})[:_text]
 
         # parse(RestClient::Request.execute(method: :post, url: "#{base_url}",
         # payload: payload, headers: header, 'Authorization:' => @config[:token]))
