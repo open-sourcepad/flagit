@@ -6,6 +6,19 @@ class Api::V1::SpeechesController < ApiController
 
   def create
     Speech.create(title: params[:title])
-    render json: {title: params[:file], text: Wit::Client.new.post(params[:file])}
+    render json: {
+      text: Wit::Client.new.post(
+        params[:file],
+        params[:title]
+                                )
+    }
+  end
+
+  def notify_email
+
+  end
+
+  def notify_slack
+
   end
 end
