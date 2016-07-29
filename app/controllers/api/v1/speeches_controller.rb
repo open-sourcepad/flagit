@@ -31,11 +31,14 @@ class Api::V1::SpeechesController < ApiController
 
     summarized_text = speech.summarized_text || 'This is the summarized text guys'
 
-    Slack::Client.new.send_message(
+    channel_text = Slack::Client.new(
       channel: "#flagit",
-      message: "Your speech, *#{speech.title}*, has been summarized: #{summarized_text} :smile:",
-    )
+      speech: speech
+    ).send_message
 
-    render json: { success: true, summarized_text: summarized_text }
+    render json: { success: true,
+                   speech: speech,
+                   channel_text: channel_text }
+
   end
 end
