@@ -4,7 +4,7 @@ class Api::V1::SpeechesController < ApiController
     puts "*********************"
     puts params[:file]
     puts params[:title]
-    Speech.create(title: params[:title], audio: params[:file])
+    Speech.create(title: params[:title])
     puts "*********************"
     render json: {text: Wit::Client.new.post(params[:file])}
   end
