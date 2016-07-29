@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails'
 gem 'sass-rails'
 gem 'uglifier'
@@ -13,8 +12,10 @@ gem 'factory_girl_rails'
 gem 'faker'
 gem 'redis'
 gem 'circleci'
+gem 'mysql2'
 gem 'sidekiq'
 gem 'sidekiq-failures'
+gem 'slack-ruby-client'
 gem 'whenever'
 gem 'aws-sdk'
 gem 'paperclip'
