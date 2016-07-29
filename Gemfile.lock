@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/daryllxd/smmrize.git
-  revision: 8e05f9359925e4ad1a104592fc3b2912ae59810e
+  revision: f9f4411cdb20f736e0b09145d97d440709b31181
   specs:
-    smmrize (0.1.1)
+    smmrize (0.1.2)
 
 GEM
   remote: https://rubygems.org/
@@ -382,7 +382,7 @@ DEPENDENCIES
   simplecov
   slack-ruby-client
   slim-rails
-  smmrize!
+  smmrize (= 0.1.2)!
   thin
   uglifier
   webmock
