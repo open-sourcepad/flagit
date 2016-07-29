@@ -8,7 +8,7 @@ Ctrl = ($scope,$state,$timeout,$http)->
 
   $timeout (->
     $scope.showIntro = false
-  ), 2000
+  ), 3000
 
   $http.get("http://flagers.herokuapp.com/api/speeches")
     .then (data)->
