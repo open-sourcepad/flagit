@@ -9,7 +9,8 @@ module Summarizer
     #        "Waited 0 extra seconds due to API limited mode, 24 requests left to make for today."}
     def summarize(speech)
       summarized_document = Smmrize.document(
-        input: speech.text
+        input: speech.text,
+        length: 3
       )
 
       speech.update_attributes(summarized_text: summarized_document['sm_api_content'])
