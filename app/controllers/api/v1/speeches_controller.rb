@@ -10,8 +10,7 @@ class Api::V1::SpeechesController < ApiController
       text: Wit::Client.new.post(
         params[:file],
         params[:title]
-                                )
-    }
+      )}
   end
 
   def notify_email
@@ -19,6 +18,11 @@ class Api::V1::SpeechesController < ApiController
   end
 
   def notify_slack
+    Slack::Client.new.send_message(
+      channel: "#general",
+      message: "Your speech has been summarized"
+    )
 
+    render json: { success: true }
   end
 end

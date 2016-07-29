@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     scope module: :v1 do
       get "speeches", to: 'speeches#index'
       post "speeches", to: 'speeches#create'
-      post "notify_email", to: 'speeches#notify_email'
+      post "notify_slack", to: 'speeches#notify_slack'
     end
   end
 
