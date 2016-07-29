@@ -1,3 +1,38 @@
+=tail
+  &:after
+    bottom: 100%
+    left: 10px
+    border: solid transparent
+    content: " "
+    height: 0
+    width: 0
+    position: absolute
+    pointer-events: none
+    border-bottom-color: #fff
+    border-width: 15px
+    bottom: -10px
+    left: 50%
+    margin-left: -30px
+    +rotate(-90deg)
+
+=head
+  &:after
+    bottom: 100%
+    left: 10px
+    border: solid transparent
+    content: " "
+    height: 0
+    width: 0
+    position: absolute
+    pointer-events: none
+    border-bottom-color: #fff
+    border-width: 15px
+    top: -30px
+    left: 50%
+    margin-left: -15px
+
+
+
 .login-container
   +container(350px)
   font-size: 1.1em
@@ -6,3 +41,138 @@
     overflow-y: inherit
   .panel-head
     text-align: center
+
+.spinner
+  top: 45%
+  left: 50%
+  position: fixed
+  margin-left: -20px
+
+.record-container
+
+  .instructions
+    width: 170px
+    margin: 0 auto
+    position: relative
+    background-color: $white
+    padding: 20px
+    text-align: center
+    font-size: 14px
+    +head
+  .video-play-button
+    margin-top: 130px
+    &.recording
+      &:after,&:before
+        background-color: #de8e8e
+        animation: pulse-border 800ms ease-out infinite
+
+.paused
+  .left
+    width: 50%
+  .right
+    width: 50%
+  .triangle-1
+    transform: translate(0, -50%)
+  .triangle-2
+    transform: translate(0, 50%)
+
+.scrum-list
+  width: 270px
+  margin: 0 auto
+  position: relative
+  +head
+  ul
+    margin: 0px
+    padding: 15px
+    list-style: none
+    box-shadow: 0 0 10px $c_shadow
+    background: #fff
+    width: 100%
+    li
+      padding: 15px
+      text-align: center
+      border-bottom: 1px solid $border
+      &:last-child
+        border-bottom: 0px
+      a
+        font-size: 14px
+
+.main-container
+  margin-top: 80px
+
+.intro-panel
+  background-color: #fff
+  width: 200px
+  position: absolute
+  top: -115px
+  left: 50%
+  padding: 20px
+  margin-left: -50px
+  +tail
+  &:after
+    transform: rotate(90deg)
+    bottom: -14px
+  h3
+    margin: 0px 0px 10px 0px
+    font-size: 16px
+    font-weight: 600
+    color: $primary
+
+.scrum-container
+  .logo-container
+    text-align: center
+    margin: 70px auto 20px auto
+    position: relative
+    &:hover
+      cursor: pointer
+      .nav-panel
+        display: block
+    .nav-panel
+      background-color: #fff
+      width: 150px
+      position: absolute
+      top: -115px
+      left: 50%
+      margin-left: -100px
+      display: none
+      +tail
+      ul
+        margin: 0px
+        padding: 10px
+        list-style: none
+        li
+          text-align: center
+          &:last-child
+            a
+              border: 0px
+          a
+            display: block
+            padding: 15px
+            font-size: 14px
+            border-bottom: 1px solid $border
+            &:hover
+              color: $primary
+  .wrap
+    h2
+      margin: 10px 0px
+      font-size: 14px
+    h1
+      margin: 0px
+    .italics
+      font-size: 10px
+      font-style: italic
+      margin: 5px 0px
+    &:after
+      bottom: 100%
+      left: 10px
+      border: solid transparent
+      content: " "
+      height: 0
+      width: 0
+      position: absolute
+      pointer-events: none
+      border-bottom-color: #fff
+      border-width: 15px
+      top: -30px
+      left: 50%
+      margin-left: -15px

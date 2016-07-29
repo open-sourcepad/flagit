@@ -1,10 +1,16 @@
 @import "utilities/*"
-@import "pages/*"
+@import "vendor/play"
+
+=rotate($degrees)
+    -ms-transform: rotate($degrees)
+    -webkit-transform: rotate($degrees)
+    transform: rotate($degrees)
+
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300)
 
 $c_or: #B7AA9C
-$c_shadow: rgba(#C8C9C9, 0.5)
+$c_shadow: rgba(#C8C9C9, 0.9)
 $c_bg: #efefef
 $c_l_blue: #9BCFCF
 $c_d_blue: #5FB2B2
@@ -17,23 +23,9 @@ body
     color: #999998
     font-family: 'Open Sans', sans-serif
 
-.scrum-list
-    margin: 0px
-    padding: 0px
-    list-style: none
-    box-shadow: 0 0 10px $c_shadow
-    background: #fff
-    width: 200px
-    li
-
 .wrap
     box-shadow: 0 0 10px $c_shadow
     background: #fff
-    width: 800px
-    position: absolute
-    top: 20%
-    left: 50%
-    transform: translateX(-50%) translateY(-50%)
     .block-text
         padding: 25px
         h1
@@ -106,3 +98,5 @@ body
         //         transform: translateY(0)
         //     span
         //         height: 45px
+
+@import "pages/*"

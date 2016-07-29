@@ -1,20 +1,53 @@
-.logo-container
-	img src="/images/logo.png"
-	ul.scrum-list
-		li
-			a href="#" Jan 21, 2016
-		li
-			a href="#"  Jan 21, 2016
-		li
-			a href="#"  Jan 21, 2016
-.wrap
-	.block-text
-		h1 Kutch Flats
-		hr
-		p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore animi cum incidunt impedit ...
-	.block-date
-		p.date.day Jun 2
-		p.date.time 10:00 AM
-		.block-date-bg
-			span.percent-75.dark
-			span.percent-25.light
+.container.scrum-container
+	.boxLoading
+	.row
+		.logo-container ng-mouseover="showIntro = false"
+			img src="/images/logo_2.png"
+			.nav-panel
+				ul
+					li
+						a ng-click="toggle('list')" Scrum List
+					li
+						a ng-click="toggle('record')" Record
+
+			.intro-panel  ng-if="showIntro"
+				h3 Hi, I am Polly.
+				p
+					|Use me to navigate the application.
+
+		.col-md-8.col-md-push-2
+			.wrap.fade ng-if="state == 'scrum'"
+				.block-text
+					h1 ng-bind="current.title"
+					.italics ng-bind="current.created_at.formatDate()"
+					hr
+
+					h2 Summary
+					hr
+					p ng-bind="current.summarized_text"
+
+					h2 Full Scrum
+					hr
+					p ng-bind="current.text"
+
+				.block-date
+					p.date.day Jun 2
+					p.date.time 10:00 AM
+					.block-date-bg
+						span.percent-75.dark
+						span.percent-25.light
+
+
+			.scrum-list.fade ng-if="state == 'list'"
+				ul
+					li ng-repeat="obj in list"
+						a ng-click="show(obj)" ng-bind="obj.label"
+
+
+			.record-container.fade ng-if="state == 'record'"
+				.instructions
+					span ng-bind="label()" Click the Button to Start Recording
+
+				a.video-play-button ng-click="record()"  ng-class="{'recording': recording}" ng-if="!crunch"
+				.spinner ng-if="crunch"
+					spinner
