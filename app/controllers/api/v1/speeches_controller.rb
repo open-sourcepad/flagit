@@ -13,8 +13,14 @@ class Api::V1::SpeechesController < ApiController
       )}
   end
 
-  def notify_email
+  def summarize
+    speech = Speech.find_by_id(params[:id])
 
+    unless speech.summarized_text
+      Summarizer::Client.new.summarize(speech)
+    end
+
+    render json: speech
   end
 
   def notify_slack
