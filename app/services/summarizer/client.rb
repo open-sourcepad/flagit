@@ -1,4 +1,5 @@
 require 'smmrize'
+require 'cgi'
 
 module Summarizer
   class Client
