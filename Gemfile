@@ -22,7 +22,7 @@ gem 'paperclip'
 gem 'pg'
 gem 'rack-cors'
 gem 'rails_12factor'
-# gem 'smmrize'
+gem 'smmrize'
 
 gem 'angular-rails-templates'
 
