@@ -1,3 +1,5 @@
+require 'smmrize'
+
 module Summarizer
   class Client
     # Return type
