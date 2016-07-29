@@ -1,5 +1,9 @@
 class Api::V1::SpeechesController < ApiController
 
+  def index
+    render json: Speech.order("id DESC")
+  end
+
   def create
     puts "*********************"
     puts params[:file]

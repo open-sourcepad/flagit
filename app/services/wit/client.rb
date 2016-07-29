@@ -13,10 +13,10 @@ module Wit
       "#{@config[:protocol]}://#{@config[:server]}"
     end
 
-    def post payload
+    def post payload, title
       begin
-        return parse(RestClient.post "#{base_url}", payload.tempfile, { 'Content-Type' => 'audio/wav', :Authorization => 'Bearer N7H5MN53KGY5IHBSO3U2CDLRH5JYHWVF'})[:_text]
-
+        text =  parse(RestClient.post "#{base_url}", payload.tempfile, { 'Content-Type' => 'audio/wav', :Authorization => 'Bearer N7H5MN53KGY5IHBSO3U2CDLRH5JYHWVF'})[:_text]
+        Speech.create(title: title, text: text)
         # parse(RestClient::Request.execute(method: :post, url: "#{base_url}",
         # payload: payload, headers: header, 'Authorization:' => @config[:token]))
       rescue Exception=> e
