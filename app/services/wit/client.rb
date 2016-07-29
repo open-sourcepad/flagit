@@ -15,15 +15,18 @@ module Wit
 
     def post payload
       begin
-        RestClient.post "#{base_url}", payload, { 'Content-Type' => 'audio/wav', :Authorization => 'Bearer N7H5MN53KGY5IHBSO3U2CDLRH5JYHWVF'}
+        return parse(RestClient.post "#{base_url}", payload, { 'Content-Type' => 'audio/wav', :Authorization => 'Bearer N7H5MN53KGY5IHBSO3U2CDLRH5JYHWVF'})[:_text]
 
         # parse(RestClient::Request.execute(method: :post, url: "#{base_url}",
         # payload: payload, headers: header, 'Authorization:' => @config[:token]))
       rescue Exception=> e
-        binding.pry
         raise e
         return false
       end
+    end
+
+    def parse(responce)
+      MultiJson.load(responce, :symbolize_keys => true)
     end
 
     protected

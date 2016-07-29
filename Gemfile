@@ -19,6 +19,7 @@ gem 'whenever'
 gem 'aws-sdk'
 gem 'paperclip'
 gem 'pg'
+gem 'streamio-ffmpeg'
 
 gem 'angular-rails-templates'
 
