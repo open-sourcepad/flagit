@@ -5,12 +5,7 @@ class Api::V1::SpeechesController < ApiController
   end
 
   def create
-    puts "*********************"
-    puts params[:file]
-    puts params[:title]
     Speech.create(title: params[:title])
-    puts "*********************"
-    render json: {text: Wit::Client.new.post(params[:file])}
+    render json: {title: params[:file], text: Wit::Client.new.post(params[:file])}
   end
-
 end
