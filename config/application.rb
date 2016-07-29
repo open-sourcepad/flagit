@@ -23,9 +23,18 @@ module OpenAdmin
 
     MultiJson.engine = :Oj
 
+
     config.middleware.delete "ActionDispatch::Cookies"
     config.middleware.delete "ActionDispatch::Session::CookieStore"
     config.middleware.delete "ActionDispatch::Flash"
+
+     config.middleware.insert_before 0, Rack::Cors do
+        allow do
+          origins '*'
+          resource '*', :headers => :any, :methods => [:get, :post, :options]
+        end
+      end
+
     config.serve_static_files = true
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
     config.autoload_paths += Dir[Rails.root.join('app', 'controllers', '{**}')]

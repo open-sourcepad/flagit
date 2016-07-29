@@ -193,6 +193,7 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     rack (2.0.1)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0)
@@ -288,8 +289,6 @@ GEM
     sshkit (1.11.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    streamio-ffmpeg (2.0.0)
-      multi_json (~> 1.8)
     temple (0.7.7)
     thin (1.7.0)
       daemons (~> 1.0, >= 1.0.9)
@@ -343,6 +342,7 @@ DEPENDENCIES
   paperclip
   pg
   pry-rails
+  rack-cors
   rails
   rb-fsevent
   redis
@@ -352,7 +352,6 @@ DEPENDENCIES
   sidekiq-failures
   simplecov
   slim-rails
-  streamio-ffmpeg
   thin
   uglifier
   webmock
